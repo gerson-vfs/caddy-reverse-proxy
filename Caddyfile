@@ -1,0 +1,14 @@
+https://landing.shopper.dev, https://landing.shopper.dev:8888 {
+  reverse_proxy http://10.10.10.2:8888
+  tls /etc/ssl/certs/shopper.dev+1.pem /etc/ssl/certs/shopper.dev+1-key.pem
+}
+
+https://shopper.dev:3000, https://*.shopper.dev:3000 {
+  reverse_proxy http://10.10.10.3:3000
+  tls /etc/ssl/certs/shopper.dev+1.pem /etc/ssl/certs/shopper.dev+1-key.pem
+}
+
+https://shopper.dev, https://*.shopper.dev {
+  reverse_proxy http://10.10.10.1:9090
+  tls /etc/ssl/certs/shopper.dev+1.pem /etc/ssl/certs/shopper.dev+1-key.pem
+}
